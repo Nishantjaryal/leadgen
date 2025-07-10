@@ -8,7 +8,6 @@ Whether you're in sales, marketing, or growth — ExoLeads transforms raw data i
 
 
 <img width="1602" height="800" alt="exolead" src="https://github.com/user-attachments/assets/af94bdcf-0e9e-4ff7-b6d5-b52079dcd078" />
-<img width="1582" height="810" alt="2" src="https://github.com/user-attachments/assets/2bc1db34-8251-4b45-a0f0-66743e5cce6e" />
 
 ---
 
@@ -41,3 +40,6 @@ Whether you're in sales, marketing, or growth — ExoLeads transforms raw data i
    cd leadgen
    npm install
    num run dev
+   ```
+<img width="1582" height="810" alt="2" src="https://github.com/user-attachments/assets/2bc1db34-8251-4b45-a0f0-66743e5cce6e" />
+
