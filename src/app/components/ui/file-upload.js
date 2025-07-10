@@ -64,23 +64,30 @@ export const FileUpload = ({
                     ref={fileInputRef}
                     id="file-upload-handle"
                     type="file"
-                    accept=".csv"
-                    disabled={isLoading}  // Fixed typo
+                    accept=".csv,text/csv"
+                    disabled={isLoading}
                     onChange={(e) => {
-                        handleFileChange(e.target.files?.[0]);
+                        const file = e.target.files?.[0];
+                        if (file && file.name.endsWith('.csv')) {
+                            handleFileChange(file);
+                        } else {
+                            alert("Please upload a valid CSV file.");
+                            e.target.value = ""; // Reset input if invalid file
+                        }
                     }}
-                    className="hidden" />
+                    className="hidden"
+                />
                 <div
                     className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
                     <GridPattern />
                 </div>
                 <div className="flex flex-col items-center justify-center">
                     <p
-                        className="relative z-20 font-sans font-bold text-neutral-300 text-base">
+                        className="relative z-20 w-full sm:text-center font-sans font-bold text-neutral-300 text-base">
                         Upload file
                     </p>
                     <p
-                        className="relative z-20 font-sans font-normaltext-neutral-400 text-base mt-2">
+                        className="relative w-full sm:text-center z-20 font-sans font-normaltext-neutral-400 text-base mt-2">
                         Drag or drop your files here or click to upload
                     </p>
                     <div className="relative w-full mt-10 max-w-xl mx-auto">
@@ -105,7 +112,7 @@ export const FileUpload = ({
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             layout
-                                            className="rounded-lg px-2 py-1 w-fit shrink-0 text-sm bg-blue-600 text-neutral-200 shadow-input">
+                                            className="rounded-lg px-2 hidden sm:block py-1 w-fit shrink-0 text-sm bg-blue-600 text-neutral-200 shadow-input">
                                             {(file.size / 1024).toFixed(2)} KB
                                         </motion.p>
                                     </div>

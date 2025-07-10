@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import { FileUpload } from "../components/ui/file-upload";
+import Link from "next/link";
 
 export default function Home() {
   const [leads, setLeads] = useState([]);
@@ -178,10 +179,19 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full min-h-screen mx-auto p-6 flex  justify-center items-center flex-col bg-gradient-to-br from-gray-800 via-blue-900 to-gray-900">
+    <div className="w-full min-h-screen mx-auto p-6  flex items-center flex-col bg-gradient-to-br from-gray-800 via-blue-900 to-gray-900">
+      <div className="w-full">
+
+        <Link href="/" className="inline-block px-4 py-2 underline underline-offset-2">
+          Back
+        </Link>
+
+        
+      </div>
+      
       <div className="my-12 w-[70%] min-w-[300px] flex  justify-center items-center flex-col min-h-[12rem]">
-        <h1 className=" text-4xl  md:text-5xl lg:text-6xl font-bold text-gray-100 mb-2">Transform raw leads</h1>
-        <p className="text-md text-center text-gray-400 lg:text-lg">Transform Raw Leads converts unstructured or basic lead data into enriched, scored, and ready-to-use profiles. It cleans, standardizes, and analyzes job titles, company info, and more.</p>
+        <h1 className=" text-4xl  md:text-5xl lg:text-6xl sm:text-center font-bold text-gray-100 mb-2">Transform raw leads</h1>
+        <p className="text-md sm:text-center text-gray-400 lg:text-lg">Transform Raw Leads converts unstructured or basic lead data into enriched, scored, and ready-to-use profiles. It cleans, standardizes, and analyzes job titles, company info, and more.</p>
       </div>
 
       {/* CSV Upload Section */}
@@ -201,7 +211,7 @@ export default function Home() {
         <button
           onClick={handleSubmit}
           disabled={!btn || loading}
-          className={` ${btn?"block":"hidden"} mt-3 mb-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+          className={` ${btn ? "block" : "hidden"} mt-3 mb-5 px-6 py-2 max-sm:px-4 max-sm:py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
         >
           {loading ? "Processing..." : "Process & Score CSV"}
         </button>
@@ -210,88 +220,85 @@ export default function Home() {
 
       {/* Scored Results Section */}
       {scored.length > 0 && (
-        <div className="mt-8 flex flex-col w-full justify-center items-center my-10">
-          <div className="flex justify-end w-[80%] items-center mb-4 ">
+        <div className="mt-8 flex flex-col w-[90%] min-w-[300px] justify-center items-center my-10">
+          <div className="flex justify-end w-full items-center mb-4 ">
             <button
               onClick={() => setShowJson(!showJson)}
-              className="px-4 py-2 bg-gray-600 text-gray-800 rounded-md hover:bg-gray-700 transition-colors"
+              className="px-3 py-1 bg-gray-700 text-white text-sm rounded-md hover:bg-gray-700 transition-colors"
             >
               {showJson ? "Show Table" : "Show JSON"}
             </button>
           </div>
 
           {showJson ? (
-            <div className="p-4 bg-black w-[80%] min-w-[300px] rounded-lg scrollbar-custom">
+            <div className="p-4 bg-black w-full rounded-lg scrollbar-custom">
               <pre className="bg-gray-900 p-4 rounded max-h-96 overflow-auto text-sm">
                 {jsonOutput}
               </pre>
             </div>
           ) : (
-            <div className="overflow-x-auto w-full flex justify-center items-center">
-              <table className=" border-collapse w-[80%] min-w-[300px] bg-slate-900 shadow-sm rounded-lg overflow-hidden border border-white">
+              <div className="w-full overflow-x-auto">
+                <table className="min-w-[700px] w-full border-collapse bg-slate-900 shadow-sm rounded-lg overflow-hidden border">
                   <thead className="bg-gray-800 border border-white">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Name</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Title</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Company</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Website</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Score</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {scored
-                    .sort((a, b) => b.score - a.score) // Sort by score descending
-                    .map((lead, i) => (
-                      <tr key={i} className="hover:bg-gray-950">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
-                          {lead.name}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                          {lead.title}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                          {lead.website ? (
-                            <a
-                              href={lead.website.startsWith('http') ? lead.website : `https://${lead.website}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-300 hover:text-blue-500 hover:underline"
+                    <tr>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-white uppercase tracking-wider">Name</th>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-white uppercase tracking-wider">Title</th>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-white uppercase tracking-wider">Company</th>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-white uppercase tracking-wider">Website</th>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-white uppercase tracking-wider">Score</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {scored
+                      .sort((a, b) => b.score - a.score)
+                      .map((lead, i) => (
+                        <tr key={i} className="hover:bg-gray-950">
+                          <td className="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">{lead.name}</td>
+                          <td className="px-4 py-3 whitespace-nowrap text-sm text-white">{lead.title}</td>
+                          <td className="px-4 py-3 whitespace-nowrap text-sm text-white">
+                            {lead.website ? (
+                              <a
+                                href={lead.website.startsWith('http') ? lead.website : `https://${lead.website}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-300 hover:text-blue-500 hover:underline"
+                              >
+                                {lead.company}
+                              </a>
+                            ) : (
+                              lead.company
+                            )}
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap text-sm text-white">
+                            {lead.website && (
+                              <a
+                                href={lead.website.startsWith('http') ? lead.website : `https://${lead.website}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-300 hover:text-blue-500 hover:underline"
+                              >
+                                🔗 Link
+                              </a>
+                            )}
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap text-sm font-medium">
+                            <span
+                              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white"
+                              style={{ backgroundColor: getScoreColor(lead.score) }}
                             >
-                              {lead.company}
-                            </a>
-                          ) : (
-                            lead.company
-                          )}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                          {lead.website && (
-                            <a
-                              href={lead.website.startsWith('http') ? lead.website : `https://${lead.website}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-300 hover:text-blue-500 hover:underline"
-                            >
-                              🔗 Link
-                            </a>
-                          )}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                          <span
-                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white"
-                            style={{ backgroundColor: getScoreColor(lead.score) }}
-                          >
-                            {lead.score}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            </div>
+                              {lead.score}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+          
           )}
 
           {/* Scoring Legend */}
-          <div className="mt-4 p-4 bg-gray-800 rounded-lg w-[80%] min-w-[300px]">
+          <div className="mt-4 p-4 bg-gray-800 rounded-lg w-full">
             <h3 className="text-sm font-medium text-gray-100 mb-2">Scoring Guide:</h3>
             <div className="flex flex-wrap gap-4 text-xs text-gray-200">
               <span>CEO/Founder: +10</span>
