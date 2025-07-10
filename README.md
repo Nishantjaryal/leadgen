@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ExoLeads
 
-## Getting Started
+ExoLeads is a smart, lightweight lead scoring web app that helps you identify and prioritize high-quality leads from your existing CSV data — all in seconds.
 
-First, run the development server:
+Just upload your .csv file and let ExoLeads intelligently process and sort your leads based on key engagement metrics and relevance. Designed with speed and clarity in mind, it delivers a clean UI and ranked results to help you focus on leads that matter most.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Whether you're in sales, marketing, or growth — ExoLeads transforms raw data into actionable insights.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+<img width="1602" height="800" alt="exolead" src="https://github.com/user-attachments/assets/af94bdcf-0e9e-4ff7-b6d5-b52079dcd078" />
+<img width="1582" height="810" alt="2" src="https://github.com/user-attachments/assets/2bc1db34-8251-4b45-a0f0-66743e5cce6e" />
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Features
 
-To learn more about Next.js, take a look at the following resources:
+- 📂 Upload your CSV file containing raw leads
+- ⚡ Automatically processes and ranks leads based on quality
+- 📊 Displays leads in a beautifully styled responsive table
+- 💎 Built with modern UI components using **Accernity UI**
+- 💡 Fast, intuitive and clean UX
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   🚀[Exolead](https://exolead.netlify.app/) 
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 Tech Stack
 
-## Deploy on Vercel
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Language:** JavaScript
+- **Styling:** Tailwind CSS
+- **UI Kit:** Accernity UI
+- **Deployment:** Netlify
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📁 How to Use
+
+**Clone the repository**
+   ```bash
+   git clone https://github.com/Nishantjaryal/leadgen.git
+   cd leadgen
+   npm install
+   num run dev
