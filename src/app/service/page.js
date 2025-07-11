@@ -449,7 +449,7 @@ export default function Home() {
               </pre>
             </div>
           ) : (
-            <div className="w-full overflow-x-auto">
+              <div className="w-full overflow-x-auto scrollbar-custom">
               <table className="min-w-[700px] w-full border-collapse bg-slate-900 shadow-sm rounded overflow-hidden border">
                 <thead className="bg-slate-950 border border-white">
                   <tr>
