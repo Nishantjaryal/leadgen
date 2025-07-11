@@ -59,7 +59,7 @@ export const FileUpload = ({
             <motion.div
                 onClick={handleClick}
                 whileHover="animate"
-                className="p-10 group/file block rounded-lg cursor-pointer w-full relative overflow-hidden">
+                className="p-10 lg:h-[50vh] group/file block rounded-lg cursor-pointer w-full relative overflow-hidden">
                 <input
                     ref={fileInputRef}
                     id="file-upload-handle"
@@ -87,25 +87,25 @@ export const FileUpload = ({
                         Upload file
                     </p>
                     <p
-                        className="relative w-full sm:text-center z-20 font-sans font-normaltext-neutral-400 text-base mt-2">
+                        className="relative w-full sm:text-center z-20 font-sans text-sm font-normal text-neutral-300 text-base mt-2">
                         Drag or drop your CSV file here or click to upload
                     </p>
-                    <div className="relative w-full mt-10 max-w-xl mx-auto">
+                    <div className="relative w-full mt-10 max-w-[500px] mx-auto">
                         {files.length > 0 &&
                             files.map((file, idx) => (
                                 <motion.div
                                     key={"file" + idx}
                                     layoutId={idx === 0 ? "file-upload" : "file-upload-" + idx}
                                     className={cn(
-                                        "relative overflow-hidden z-40 bg-gray-950 flex flex-col items-start justify-start md:h-24 p-4 mt-4 w-full mx-auto rounded",
+                                        "relative overflow-hidden z-40 bg-gray-950 flex flex-col items-center justify-center md:h-24 lg:h-32 p-4 mt-4 w-full mx-auto rounded",
                                         "shadow-sm"
                                     )}>
-                                    <div className="flex justify-between w-full items-center gap-4">
+                                    <div className="flex justify-between w-full items-center gap-4 ">
                                         <motion.p
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             layout
-                                            className="text-base text-neutral-700 dark:text-neutral-300 truncate max-w-xs">
+                                            className="text-base text-neutral-300 truncate max-w-xs">
                                             {file.name}
                                         </motion.p>
                                         <motion.p
@@ -148,19 +148,19 @@ export const FileUpload = ({
                                     damping: 20,
                                 }}
                                 className={cn(
-                                    "relative group-hover/file:shadow-2xl z-40 bg-blue-900 dark:bg-blue-800 flex items-center justify-center h-32 mt-4 w-full max-w-[10rem] mx-auto rounded-md",
+                                    "relative group-hover/file:shadow-2xl z-40 bg-blue-800 flex items-center justify-center h-32 mt-4 w-full max-w-[10rem] mx-auto rounded-md",
                                     "shadow-[0px_10px_50px_rgba(0,0,0,0.1)]"
                                 )}>
                                 {isDragActive ? (
                                     <motion.p
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
-                                        className="text-neutral-100 dark:text-neutral-200 flex flex-col items-center">
+                                        className="text-neutral-200 flex flex-col items-center">
                                         Drop it
-                                        <IconUpload className="h-4 w-4 text-neutral-300 dark:text-neutral-400" />
+                                        <IconUpload className="h-4 w-4 text-neutral-400" />
                                     </motion.p>
                                 ) : (
-                                    <IconUpload className="h-4 w-4 text-neutral-300 dark:text-neutral-400" />
+                                    <IconUpload className="h-4 w-4 text-neutral-400" />
                                 )}
                             </motion.div>
                         )}
@@ -182,7 +182,7 @@ export function GridPattern() {
     const rows = 11;
     return (
         <div
-            className="flex bg-gray-100 dark:bg-neutral-900 shrink-0 flex-wrap justify-center items-center gap-x-px gap-y-px scale-105">
+            className="flex bg-neutral-900 shrink-0 flex-wrap justify-center items-center gap-x-px gap-y-px scale-105">
             {Array.from({ length: rows }).map((_, row) =>
                 Array.from({ length: columns }).map((_, col) => {
                     const index = row * columns + col;
@@ -190,8 +190,8 @@ export function GridPattern() {
                         <div
                             key={`${col}-${row}`}
                             className={`w-10 h-10 flex shrink-0 rounded-[2px] ${index % 2 === 0
-                                    ? "bg-neutral-950 dark:bg-neutral-800"
-                                    : "bg-neutral-950 dark:bg-neutral-800 shadow-[0px_0px_1px_3px_rgba(0,0,0,1)_inset] dark:shadow-[0px_0px_1px_3px_rgba(255,255,255,0.1)_inset]"
+                                    ? "bg-neutral-800"
+                                    : "bg-neutral-800  shadow-[0px_0px_1px_3px_rgba(255,255,255,0.1)_inset]"
                                 }`} />
                     );
                 }))}
