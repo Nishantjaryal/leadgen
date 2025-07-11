@@ -87,7 +87,7 @@ export const FileUpload = ({
                         Upload file
                     </p>
                     <p
-                        className="relative w-full sm:text-center z-20 font-sans text-sm font-normal text-neutral-300 text-base mt-2">
+                        className="relative w-full sm:text-center z-20 font-sans text-sm font-normal text-neutral-300  mt-2">
                         Drag or drop your CSV file here or click to upload
                     </p>
                     <div className="relative w-full mt-10 max-w-[500px] mx-auto">
